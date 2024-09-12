@@ -3,6 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=650, initial-scale=1">
     <title>Micah Pope - Cryptologist</title>
     <style>
         body {
@@ -13,6 +14,11 @@
             margin: 20px 10px 0px 20px;
             text-align: left;
             width: 650px;
+        }
+        @media only screen and (max-width: 650px) {
+            body {
+                width: 90%;
+            }
         }
         .manheader {
             font-family: monospace;
@@ -53,6 +59,12 @@
 </head>
 
 <body>
+    <script>
+        var siteWidth = 650;
+        var scale = screen.width /siteWidth;
+        
+        document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
+    </script>
     <pre class="manheader">
         <span>MICAH POPE</span>
         <span>Linux User's Manual</span>
