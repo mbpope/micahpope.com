@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Micah Pope | Web Dev</title>
+        
+        <link rel="stylesheet" href="style.css">
+        
+        <link href="./assets/css/fontawesome.css" rel="stylesheet" />
+        <link href="./assets/css/brands.css" rel="stylesheet" />
+        <link href="./assets/css/solid.css" rel="stylesheet" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="body-wrapper">
+            <div id="typewriter">
+                <h1 id="typewriter-text">Hi, my name is <span id="my-name-is">Micah Pope</span></h1>
+            </div>
+            <div>
+                <div>
+                    <h2>I'll develop or redesign a website for your...</h2>
+                    <div id="website-purpose-wrapper">
+                        <div>
+                            <i class="fa-solid fa-briefcase"></i>
+                            <h3>Small Business</h3>
+                            <p>Provide a landing page for your customers and clients!</p>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-folder-open"></i>
+                            <h3>Portfolio</h3>
+                            <p>Publish your work for the world to see!</p>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-list-check"></i>
+                            <h3>Personal Project</h3>
+                            <p>Make your idea a reality!</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="about-wrapper">
+                    <div>
+                        <h2>About me</h2>
+                        <p>I'm a self-taught developer that has been programming ever since my parents bought me an Arduino for Christmas at age 11.</p>
+                        <p>I accidentally joined the Navy during COVID, and now I'm a field IT professional working on traffic systems to pay the bills.</p>
+                        <p>I like building websites. Hire me!</p>
+                    </div>
+                    <div>
+                        <h2>Why choose me?</h2>
+                        <ul id="why-me-wrapper">
+                            <li><strong>10+ years of web development experience.</strong> In a world full of AI garbage, choose someone who actually understands what they're doing.</li>
+                            <li><strong>I enjoy programming.</strong> I'll only take on your project if it sounds interesting to me.</li>
+                            <li><strong>You can afford me.</strong> I can work within your budget.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>Get in touch!</h2>
+                        <p>Interested in samples of my work, a quote, or just want to say hi? Shoot me an email at:</p>
+                        <p><strong>micah(at)micahpope.com</strong></p>
+                    </div>
+                    <div>
+                        <h2>Find me elsewhere on the internet...</h2>
+                        <div id="socials">
+                            <a href="https://www.linkedin.com/in/micahpope/"><i class="fa-brands fa-linkedin"></i><span>LinkedIn</span></a>
+                            <a href="https://github.com/mbpope"><i class="fa-brands fa-github"></i><span>GitHub</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(event){
+        var dataText = ["Hi! My name is Micah Pope", "¡Hola! Mi nombre es Micah Pope", "Salut! Je m'appelle Micah Pope"];
+        
+        function typeWriter(text, i, fnCallback) {
+            if (i < (text.length)) {
+                document.querySelector("h1").innerHTML = text.substring(0, i+1) +'<span aria-hidden="true" class="cursor"></span>';
+
+                setTimeout(function() {
+                    typeWriter(text, i + 1, fnCallback)
+                }, 100);
+            } else if (typeof fnCallback == 'function') {
+                setTimeout(fnCallback, 5000);
+            }
+        }
+        function StartTextAnimation(i) {
+            if (typeof dataText[i] == 'undefined'){
+                setTimeout(function() {
+                StartTextAnimation(0);
+                }, 5000);
+            } else if (i < dataText[i].length) {
+                typeWriter(dataText[i], 0, function(){
+                StartTextAnimation(i + 1);
+            });
+            }
+        }
+        StartTextAnimation(0);
+        });
+    </script>
+</html>
